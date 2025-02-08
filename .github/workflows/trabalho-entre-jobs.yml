@@ -30,7 +30,13 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: strigus
-          path: mensagem.txt
+          path: strigus
+
+      - name: Ver o conteudo do diretorio
+        run: ls -lha && ls ./strigus/
+
+      - name: Acessa arquivo mensagem
+        run: mv strigus/mensagem.txt . && rm -rf ./strigus 
 
       - name: Ver o conteudo do diretorio
         run: ls -lha
