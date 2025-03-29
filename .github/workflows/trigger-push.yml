@@ -1,4 +1,4 @@
-name: Criando nosso trigger Pull Request
+name: Criando nosso trigger Push
 
 on:
   push:
