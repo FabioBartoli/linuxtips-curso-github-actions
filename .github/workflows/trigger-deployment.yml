@@ -6,4 +6,6 @@ on:
 jobs:
   job-deployment:
     runs-on: ubuntu-latest
-    run: echo "Esse job foi triggado pelo tipo deployment"
+    steps:
+      - name: Printa Deployment
+        run: Esse job foi triggado por um deployment externo
