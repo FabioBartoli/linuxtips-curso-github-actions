@@ -1,4 +1,4 @@
-name: Criando nosso trigger do tipo Status
+name: Criando nosso trigger do tipo Workflow Dispatch
 
 on: 
   workflow_dispatch:
