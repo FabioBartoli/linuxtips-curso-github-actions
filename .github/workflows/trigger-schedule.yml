@@ -2,7 +2,7 @@ name: Criando nosso trigger Schedule
 
 on:
   schedule:
-    - cron: 26 23 * * 5 # <---
+    - cron: 35 23 * * 5 # <---
     - cron: '*/5 * * * 5'
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Informa Horário
-        if: github.event.schedule == '24 23 * * 5'
+        if: github.event.schedule == '35 23 * * 5'
         run: echo "Esse step rodou pois essa execução foi pelo horário agendado"
 
       - name: Informa Horário
