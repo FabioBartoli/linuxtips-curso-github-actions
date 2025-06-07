@@ -1,0 +1,13 @@
+name: Validação do Ambiente
+
+on:
+  workflow_dispatch
+
+jobs:
+  valida-o-ambiente:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == "main" && "production" ||  github.ref_name == "staging" && "staging" }}
+    steps:
+      - name: Printa o ambiente
+        env: AMBIENTE_CONFIGURADO = $AMBIENTE
+        run: echo "O ambiente configurado é o $AMBIENTE_CONFIGURADO"
