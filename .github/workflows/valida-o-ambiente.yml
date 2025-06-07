@@ -6,7 +6,7 @@ on:
 jobs:
   valida-o-ambiente:
     runs-on: ubuntu-latest
-    environment: ${{ github.ref_name == "main" && "production" ||  github.ref_name == "staging" && "staging" }}
+    environment: ${{ github.ref_name == 'main' && 'production' ||  github.ref_name == 'staging' && 'staging' }}
     steps:
       - name: Printa o ambiente
         env: AMBIENTE_CONFIGURADO = $AMBIENTE
