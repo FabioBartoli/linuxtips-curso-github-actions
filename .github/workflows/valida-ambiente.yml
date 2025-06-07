@@ -4,18 +4,28 @@ on:
   workflow_dispatch:
 
 jobs:
+  env:
+    NOME_DO_CURSO: GITHUB_ACTIONS
   valida-ambiente-prd:
+    env: 
+      DIA_DA_SEMANA: sabado
     if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     environment: production
     steps:
       - name: Printa valor
-        run: echo "Estou no ambiente ${{ vars.AMBIENTE }}"
+        env: 
+          DIA_MES: 10
+        run: echo "Estou no ambiente ${{ vars.AMBIENTE }} e hoje é dia ${{ env.DIA_MES }}, ${{ env.DIA_DA_SEMANA }} e estou no curso ${{ env.NOME_DO_CURSO }}"
 
   valida-ambiente-stg:
+    env: 
+      DIA_DA_SEMANA: sexta
     if: github.ref_name == 'staging'
     runs-on: ubuntu-latest
     environment: staging
     steps:
       - name: Printa valor
-        run: echo "Estou no ambiente ${{ vars.AMBIENTE }}"
+        env: 
+          DIA_MES: 20
+        run: echo "Estou no ambiente ${{ vars.AMBIENTE }} e hoje é dia ${{ env.DIA_MES }}, ${{ env.DIA_DA_SEMANA }} e estou no curso ${{ env.NOME_DO_CURSO }}"
