@@ -3,9 +3,10 @@ name: Validação de Ambiente
 on: 
   workflow_dispatch:
 
+env:
+  NOME_DO_CURSO: GITHUB_ACTIONS
+
 jobs:
-  env:
-    NOME_DO_CURSO: GITHUB_ACTIONS
   valida-ambiente-prd:
     env: 
       DIA_DA_SEMANA: sabado
