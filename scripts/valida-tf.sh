@@ -16,6 +16,8 @@ echo "::endgroup::"
 
 echo "::add-mask::${AWS_ACCESS_KEY_ID:-LINUXTIPSTRIGUSGIRUS}"
 
+cd ./iac/
+
 if terraform validate -no-color; then
   echo "::notice::Terraform validation succeeded"
   echo "tf_result=success" >> "$GITHUB_OUTPUT"
