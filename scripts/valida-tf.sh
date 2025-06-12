@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+## CONFIGURAÇÃO DO TERRAFORM
+DOWNLOAD_URL="https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+
+echo "Instalando Terraform ${TERRAFORM_VERSION}..."
+curl -sfL "$DOWNLOAD_URL" -o /tmp/terraform.zip
+unzip -q /tmp/terraform.zip -d ~/bin && export PATH="$HOME/bin:$PATH"
+
+##########
+
 echo "::group::Terraform initialization"
 terraform init -backend=false
 echo "::endgroup::"
