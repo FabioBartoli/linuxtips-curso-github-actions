@@ -10,6 +10,8 @@ unzip -q /tmp/terraform.zip -d ~/bin && export PATH="$HOME/bin:$PATH"
 
 ##########
 
+cd ./iac/
+
 echo "::group::Terraform initialization"
 terraform init -backend=false
 echo "::endgroup::"
