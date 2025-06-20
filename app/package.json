@@ -9,8 +9,7 @@
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage --coverageReporters=json-summary --coverageDirectory=coverage && cp coverage/coverage-summary.json report.json"
   },
   "jest": {
-    "testEnvironment": "node",
-    "extensionsToTreatAsEsm": [".js"]
+    "testEnvironment": "node"
   },
   "dependencies": {
     "express": "^4.18.2"
