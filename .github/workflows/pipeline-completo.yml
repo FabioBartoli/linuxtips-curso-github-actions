@@ -60,6 +60,9 @@ jobs:
       coverage: ${{ steps.test.outputs.coverage }}
 
   docker:
+    permissions:
+      contents: read
+      packages: write
     needs: unit
     if: ${{ needs.unit.outputs.coverage >= 80 }}
     runs-on: ubuntu-latest
