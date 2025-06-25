@@ -1,0 +1,15 @@
+name: Popula Backlog
+
+on:
+  issues:
+    types: opened
+
+jobs:
+  add-bug-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1
+        with:
+          project-url: https://github.com/users/FabioBartoli/projects/3
+          github-token: ${{ secrets.PROJECT_SECRET }}
+          labeled: bug
