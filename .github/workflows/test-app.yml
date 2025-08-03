@@ -1,0 +1,33 @@
+name: Node.js Matrix Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16.x, 18.x, 20.x, 22.x]
+
+    name: Tests on Node ${{ matrix.node }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        working-directory: app/src/
+        run: npm ci
+
+      - name: Run Jest
+        working-directory: app/src/
+        run: npm test
