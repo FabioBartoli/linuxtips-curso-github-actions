@@ -1,0 +1,23 @@
+name: Build com Cache
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        id: setup-node
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: app/src/package-lock.json
+
+      - name: Instala dependências
+        working-directory: app/src/
+        run: npm ci
+
+      - name: Executa testes
+        working-directory: app/src/
+        run: npm test
